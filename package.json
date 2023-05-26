@@ -1,9 +1,13 @@
 {
-  "name": "week-4",
-  "version": "0.0.0",
+  "name": "week-3.5",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "start": "node ./server.js"
+  },
+  "engines": {
+    "node": "^18.00.0",
+    "npm": "9.0.0"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.4.0",
@@ -17,5 +21,14 @@
     "jquery": "^3.7.0",
     "morgan": "~1.9.1",
     "popper.js": "^1.16.1"
-  }
+  },
+  "description": "demo app for COMP229 Week 3",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "(https://https://github.com/stefanlovecchio/COMP229-F2023-Week3.git)"
+  },
+  "author": "Stefan Lovecchio",
+  "license": "ISC"
 }
