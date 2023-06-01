@@ -1,20 +1,22 @@
 <!-- Main Navigation-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="--bs-navbar-nav-link-padding-x: 1rem;
+--bs-navbar-brand-margin-end: 50%;
+--bs-navbar-nav-link-padding-x: 3rem;">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/">COMP229</a>
+      <a class="navbar-brand" style="font-size: 2rem;" href="/"><img src="/Assets/images/MYLOGO.png">COMP229</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
   
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
   
           <% if (title == "Home") { %>
           <li class="nav-item active">
           <% } else { %>
           <li class="nav-item">
           <% } %>
-            <a class="nav-link" aria-current="page" href="/home"><i class="fa-solid fa-lg fa-house"></i> Home </a>
+            <a class="nav-link" aria-current="page" href="/home"><i class="fa-solid fa-5x fa-house"></i> Home </a>
           </li>
   
           <% if (title == "About") { %>
@@ -22,15 +24,15 @@
             <% } else { %>
             <li class="nav-item">
             <% } %>
-            <a class="nav-link" aria-current="page" href="/about"><i class="fa-sharp fa-solid fa-circle-info"></i> About </a>
+            <a class="nav-link" aria-current="page" href="/about"><i class="fa-sharp fa-5x fa-solid fa-circle-info"></i> About Me</a>
           </li>
   
-          <% if (title == "Products") { %>
+          <% if (title == "Projects") { %>
             <li class="nav-item active">
             <% } else { %>
             <li class="nav-item">
             <% } %>
-            <a class="nav-link" aria-current="page" href="/products"><i class="fa-brands fa-elementor"></i> Products </a>
+            <a class="nav-link" aria-current="page" href="/projects"><i class="fa-brands fa-5x fa-elementor"></i> Projects </a>
           </li>
   
           <% if (title == "Services") { %>
@@ -38,7 +40,7 @@
             <% } else { %>
             <li class="nav-item">
             <% } %>
-            <a class="nav-link" aria-current="page" href="/services"><i class="fa-solid fa-gear"></i> Services </a>
+            <a class="nav-link" aria-current="page" href="/services"><i class="fa-solid fa-5x fa-gear"></i> Services </a>
           </li>
   
           <% if (title == "Contact") { %>
@@ -46,7 +48,7 @@
             <% } else { %>
             <li class="nav-item">
             <% } %>
-            <a class="nav-link" aria-current="page" href="/contact"><i class="fa-solid fa-mobile"></i> Contact </a>
+            <a class="nav-link" aria-current="page" href="/contact"><i class="fa-solid fa-mobile fa-5x"></i> Contact </a>
           </li>
       </div>
     </div>

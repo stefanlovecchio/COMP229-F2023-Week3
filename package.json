@@ -23,7 +23,7 @@
     "popper.js": "^1.16.1"
   },
   "description": "demo app for COMP229 Week 3",
-  "main": "index.js",
+  "main": "server.js",
   "devDependencies": {},
   "repository": {
     "type": "git",

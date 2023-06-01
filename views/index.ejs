@@ -6,9 +6,29 @@
 <!-- Main content -->
 <main class="container">
   <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+    
     <div class="container-fluid py-5">
       <h1 class="display-5 fw-bold">Welcome to the <%= title %> page</h1>
 
+      <%if (title == 'Home') { %>
+        <%- include ('partials/home') %>
+      <% } %>
+
+      <%if (title == 'About Me') { %>
+        <%- include ('partials/aboutMe') %>
+      <% } %>
+
+      <%if (title == 'Projects') { %>
+        <%- include ('partials/projects') %>
+      <% } %>
+
+      <%if (title == 'Services') { %>
+        <%- include ('partials/services') %>
+      <% } %>
+
+      <%if (title == 'Contact') { %>
+        <%- include ('partials/contact') %>
+      <% } %>
     </div>
   </div>
 </main>
