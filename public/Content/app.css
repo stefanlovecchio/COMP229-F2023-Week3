@@ -1,4 +1,4 @@
-/* custom css goes here */
+/* app.css by Stefan Lovecchio ID# 301305372 04/06/23 */
 
 body {
     
@@ -150,10 +150,14 @@ fieldset label {
         flex-direction: column;
         background-color: #69dae31c;
         padding: 4rem;
+        padding-top:0;
     }
 p#description {
     text-align: center;
 }
 .fa-download {
     color: blueviolet;
+}
+div#services{
+    text-align: center;
 }
