@@ -15,10 +15,20 @@ let flash = require('connect-flash');
 
 // database setup
 let mongoose = require('mongoose');
-
+let DB = require('./config/db');
 
 let indexRouter = require('./routes/index');
 let usersRouter = require('./routes/users');
+let contactsRouter = require('./routes/contacts');
+
+// point mongoose to the DB URI
+mongoose.connect(DB.URI);
+
+let mongoDB = mongoose.connection;
+mongoDB.on('error', console.error.bind(console, 'Connection Error:'));
+mongoDB.once('open', ()=>{
+  console.log('Connected to MongoDB...');
+})
 
 let app = express();
 
@@ -62,6 +72,7 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/contacts-list', contactsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
