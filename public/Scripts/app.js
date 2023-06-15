@@ -3,6 +3,20 @@
     function Start()
     {
         console.log("App started!");
+
+        let deleteButtons = document.querySelectorAll('.btn-danger')
+
+        for ( button of deleteButtons)
+        {
+            button.addEventListener('click', (event) => {
+                if (!confirm("Are your sure?"))
+                {
+                    event.preventDefault();
+                    window.location.assign('/game-list');
+                }
+            });
+        }
+        
     function handleClick() {
         if (document.getElementById("hiring").checked) {
             box.style.display = "block";
@@ -13,7 +27,6 @@
 
     function getData(form) {
         var formData = new FormData(form);
-      
         // iterate through entries...
         for (var pair of formData.entries()) {
           console.log(pair[0] + ": " + pair[1]);
@@ -32,7 +45,6 @@
       }
 
     const radioBtn = document.querySelectorAll("input[type=radio]");
-
     radioBtn.forEach((radio) => {
         radio.addEventListener("click", handleClick);
     });
