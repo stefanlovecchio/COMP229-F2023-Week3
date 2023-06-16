@@ -1,7 +1,5 @@
 <!-- Main Navigation-->
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="--bs-navbar-nav-link-padding-x: 1rem;
---bs-navbar-brand-margin-end: 45%;
---bs-navbar-nav-link-padding-x: 1rem;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="--bs-navbar-brand-margin-end: 35%;>
     <div class="container-fluid">
       <a class="navbar-brand" style="font-size: 2rem;" href="/"><img src="/Assets/images/MYLOGO.png" height="150px">COMP229</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,6 +56,15 @@
             <% } %>
             <a class="nav-link" aria-current="page" href="/contacts-list"><i class="fa-solid fa-list fa-5x"></i> Contact List </a>
           </li>
+
+          <% if (typeof username == "string" && username) { %>
+            <li class="navbar-text" style="color: #53eeff"><i class="fa-solid fa-user fa-5x"></i> Welcome, <%= username %></li>
+            <li class="nav-item"><a href="/logout" class="nav-link">
+              <i class="fa-solid fa-right-from-bracket fa-5x"></i> Logout</a></li>
+            <% } else  { %>
+              <li class="nav-item"><a href="/login" class="nav-link">
+                <i class="fa-solid fa-right-to-bracket fa-5x"></i> Login</a></li>
+            <% } %>
       </div>
     </div>
   </nav>

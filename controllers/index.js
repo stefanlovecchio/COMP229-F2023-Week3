@@ -8,23 +8,23 @@ let userModel = require('../models/user');
 let User = userModel.User //alias
 
 module.exports.displayHomePage = (req, res, next) => {
-    res.render('index', { title: 'Home', displayName: req.user ? req.user.displayName : '' });
+    res.render('index', { title: 'Home', username: req.user ? req.user.username : '' });
 }
 
 module.exports.displayAboutPage = (req, res, next) => {
-    res.render('index', { title: 'About Me' , displayName: req.user ? req.user.displayName : ''});
+    res.render('index', { title: 'About Me' , username: req.user ? req.user.username : ''});
 }
 
 module.exports.displayProjectsPage = (req, res, next) => {
-    res.render('index', { title: 'Projects' , displayName: req.user ? req.user.displayName : ''});
+    res.render('index', { title: 'Projects' , username: req.user ? req.user.username : ''});
 }
 
 module.exports.displayServicesPage = (req, res, next) => {
-    res.render('index', { title: 'Services' , displayName: req.user ? req.user.displayName : ''});
+    res.render('index', { title: 'Services' , username: req.user ? req.user.username : ''});
 }
 
 module.exports.displayContactPage = (req, res, next) => {
-    res.render('index', { title: 'Contact' , displayName: req.user ? req.user.displayName : ''});
+    res.render('index', { title: 'Contact' , username: req.user ? req.user.username : ''});
 }
 
 module.exports.displayLoginPage = (req, res, next) => {
@@ -35,7 +35,7 @@ module.exports.displayLoginPage = (req, res, next) => {
         {
             title: "Login",
             messages: req.flash('loginMessage'),
-            displayName: req.user ? req.user.displayName : ''
+            username: req.user ? req.user.username : ''
         })
     }
     else
@@ -63,7 +63,7 @@ module.exports.processLoginPage = (req, res, next) => {
             {
                 return next(err);
             }
-            return res.redirect('/game-list');
+            return res.redirect('/contacts-list');
         });
     })(req, res, next);
 }

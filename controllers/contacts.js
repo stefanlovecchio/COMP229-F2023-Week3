@@ -8,12 +8,11 @@ let Contact = require('../models/contacts');
 module.exports.displayContactList = async (req, res, next)=>{
     try {
         let contactList = await Contact.find();
-        //console.log(gameList);
 
         res.render('contacts/list', 
             {title: 'Contacts', 
             ContactList: contactList,
-            displayName: req.user ? req.user.displayName : ''})
+            username: req.user ? req.user.username : ''})
     } catch (err){
         console.log(err);
     }
@@ -31,7 +30,7 @@ module.exports.displayAddPage = async (req, res, next)=>{
     try {
         res.render('contacts/add', 
         {title: 'Add Contact',
-        displayName: req.user ? req.user.displayName : ''})
+        username: req.user ? req.user.username : ''})
     } catch (err){
         console.log(err);
     }
@@ -61,7 +60,7 @@ module.exports.displayEditPage = async (req, res, next) => {
         res.render('contacts/edit', 
         {title: 'Edit Contact', 
         contact: contactToEdit,
-        displayName: req.user ? req.user.displayName : ''});
+        username: req.user ? req.user.username : ''});
     } catch (err){
         console.log(err);
         res.status(500).send(err);
@@ -71,7 +70,7 @@ module.exports.displayEditPage = async (req, res, next) => {
 module.exports.processEditPage = async (req, res, next) => {
     let id = req.params.id;
 
-    let updatedGame = {
+    let updatedContact = {
         "name": req.body.name,
         "phone": req.body.phone,
         "email": req.body.email,

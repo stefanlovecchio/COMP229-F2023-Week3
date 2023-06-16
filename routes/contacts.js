@@ -17,8 +17,8 @@ function requireAuth(req, res, next)
     next();
 }
 
-// Get Route for the Game List page - READ Operation
-router.get('/', contactsController.displayContactList);
+// Get Route for the Contact List page - READ Operation
+router.get('/', requireAuth, contactsController.displayContactList);
 
 // Get Route for the Add page - CREATE Operation
 router.get('/add', requireAuth, contactsController.displayAddPage);
