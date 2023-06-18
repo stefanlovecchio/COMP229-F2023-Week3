@@ -49,6 +49,7 @@ module.exports.displayLoginPage = (req, res, next) => {
 
 //process login page
 module.exports.processLoginPage = (req, res, next) => {
+
     passport.authenticate('local',
     (err, user, info) => {
         //server err?
@@ -70,6 +71,61 @@ module.exports.processLoginPage = (req, res, next) => {
             return res.redirect('/contacts-list');
         });
     })(req, res, next);
+}
+
+module.exports.displayRegisterPage = (req, res, next) => {
+    // check if the user is not already logged in
+    if(!req.user)
+    {
+        res.render('auth/register',
+        {
+            title: "Register",
+            messages: req.flash('registerMessage'),
+            displayName: req.user ? req.user.displayName : ''
+        });
+    }
+    else
+    {
+        return res.redirect('/');
+    }
+}
+
+module.exports.processRegisterPage = (req, res, next) => {
+    //initialize an user object
+    let newUser = new User({
+        "username": req.body.username,
+        "password": req.body.password,
+        "email": req.body.email
+    });
+
+    User.register(newUser, req.body.password, (err) => {
+        if(err)
+        {
+            console.log(err);
+            console.log("Error: Inserting New User");
+            if(err.name == 'UserExistsError')
+            {
+                req.flash(
+                    'registerMessage',
+                    'Registration Error: User Already Exists!'
+                );
+                console.log('Error: User Already Exists!');
+            }
+            return res.render('auth/register',
+            {
+                title: "Register",
+                messages: req.flash('registerMessage'),
+                displayName: req.user ? req.user.displayName : ''
+            });
+        }
+        else
+        {
+            //if registration is success
+            return passport.authenticate('local')(req, res, () => {
+                res.redirect('/contacts-list')
+            });
+        }
+    });
 }
 
 //perform logout

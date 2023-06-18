@@ -13,15 +13,19 @@ let User = mongoose.Schema(
             trim: true,
             require: 'Username is required.'
         },
-        created:
+        password:
         {
-            type: Date,
-            default: Date.now
+            type: String,
+            default: "",
+            trim: true,
+            require: 'Username is required.'
         },
-        update:
+        email:
         {
-            type: Date,
-            default: Date.now
+            type: String,
+            default: "",
+            trim: true,
+            require: 'Username is required.'
         }
     },
     {
