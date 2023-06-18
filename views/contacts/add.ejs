@@ -7,35 +7,37 @@
     <div class="row">
         <div class="offset-md-3 col-md-6">
             <h1><%= title %></h1>
+            <!-- Add contact form-->
             <form class="form" method="POST">
                 <div class="form-group">
                     <label for="nameTextField">Name</label>
+                    <!--New Contact Name-->
                     <input type="text" class="form-control"
                     id="nameTextField"
                     placeholder="Enter Contact's full name"
                     name="name" required>
                 </div>
-
+                <!-- New contact Phone number-->
                 <div class="form-group">
-                    <label for="developerTextField">Phone</label>
+                    <label for="phoneTextField">Phone</label>
                     <input type="text" class="form-control"
                     id="phoneTextField"
                     placeholder="Enter phone number"
                     name="phone" required>
                 </div>
-
+                <!-- New contact email address-->
                 <div class="form-group">
-                    <label for="releasedTextField">Email</label>
+                    <label for="emailTextField">Email</label>
                     <input type="text" class="form-control"
-                    id="releasedTextField"
+                    id="emailTextField"
                     placeholder="Enter email"
                     name="email" required>
                 </div>
-
+                <!-- submit button-->
                 <br>
                 <button class="btn btn-primary" type="submit">
                     <i class="fas fa-edit"></i> Submit</button>
-
+                <!-- Cancel button-->
                 <a href="/contacts-list" class="btn btn-warning">
                     <i class="fas fa-undo"></i> Cancel</a>
             </form>

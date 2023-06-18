@@ -8,7 +8,7 @@
   
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
-  
+          <!-- Home page Active-->
           <% if (title == "Home") { %>
           <li class="nav-item active">
           <% } else { %>
@@ -16,7 +16,7 @@
           <% } %>
             <a class="nav-link" aria-current="page" href="/home"><i class="fa-solid fa-5x fa-house"></i> Home </a>
           </li>
-  
+           <!--  About page Active-->
           <% if (title == "About") { %>
             <li class="nav-item active">
             <% } else { %>
@@ -24,7 +24,7 @@
             <% } %>
             <a class="nav-link" aria-current="page" href="/about"><i class="fa-sharp fa-5x fa-solid fa-circle-info"></i> About Me</a>
           </li>
-  
+           <!-- Projects page Active-->
           <% if (title == "Projects") { %>
             <li class="nav-item active">
             <% } else { %>
@@ -32,7 +32,7 @@
             <% } %>
             <a class="nav-link" aria-current="page" href="/projects"><i class="fa-brands fa-5x fa-elementor"></i> Projects </a>
           </li>
-  
+           <!-- Services page Active-->
           <% if (title == "Services") { %>
             <li class="nav-item active">
             <% } else { %>
@@ -40,7 +40,7 @@
             <% } %>
             <a class="nav-link" aria-current="page" href="/services"><i class="fa-solid fa-5x fa-gear"></i> Services </a>
           </li>
-  
+           <!-- Contact page Active-->
           <% if (title == "Contact") { %>
             <li class="nav-item active">
             <% } else { %>
@@ -48,7 +48,7 @@
             <% } %>
             <a class="nav-link" aria-current="page" href="/contact"><i class="fa-solid fa-mobile fa-5x"></i> Contact </a>
           </li>
-
+           <!-- Contacts list page Active-->
           <% if (title == "Contacts") { %>
             <li class="nav-item active">
             <% } else { %>
@@ -56,7 +56,7 @@
             <% } %>
             <a class="nav-link" aria-current="page" href="/contacts-list"><i class="fa-solid fa-list fa-5x"></i> Contact List </a>
           </li>
-
+           <!-- Display username in navbar -->
           <% if (typeof username == "string" && username) { %>
             <li class="navbar-text" style="color: #53eeff"><i class="fa-solid fa-user fa-5x"></i> Welcome, <%= username %></li>
             <li class="nav-item"><a href="/logout" class="nav-link">

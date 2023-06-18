@@ -1,3 +1,5 @@
+/* contacts.js by Stefan Lovecchio ID# 301305372 18/06/23 */
+
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
@@ -5,6 +7,7 @@ let mongoose = require('mongoose');
 // connect to our Contacts Model
 let Contact = require('../models/contacts');
 
+//display list of contacts
 module.exports.displayContactList = async (req, res, next)=>{
     try {
         let contactList = await Contact.find();
@@ -18,14 +21,7 @@ module.exports.displayContactList = async (req, res, next)=>{
     }
 };
 
-module.exports.displayAddPage = async (req, res, next)=>{
-    try {
-        res.render('contacts/add', {title: 'Add Contact'})
-    } catch (err){
-        console.log(err);
-    }
-};
-
+//display page for adding contacts
 module.exports.displayAddPage = async (req, res, next)=>{
     try {
         res.render('contacts/add', 
@@ -36,6 +32,7 @@ module.exports.displayAddPage = async (req, res, next)=>{
     }
 };
 
+//process added contact info
 module.exports.processAddPage = async (req, res, next) => {
     let newContact = new Contact({
         "name": req.body.name,
@@ -52,6 +49,7 @@ module.exports.processAddPage = async (req, res, next) => {
     }
 };
 
+//display page for editing a contact
 module.exports.displayEditPage = async (req, res, next) => {
     let id = req.params.id;
 
@@ -67,6 +65,7 @@ module.exports.displayEditPage = async (req, res, next) => {
     }
 };
 
+//process edited ontact
 module.exports.processEditPage = async (req, res, next) => {
     let id = req.params.id;
 
@@ -75,7 +74,6 @@ module.exports.processEditPage = async (req, res, next) => {
         "phone": req.body.phone,
         "email": req.body.email,
     };
-
     try {
         await Contact.updateOne({_id: id}, updatedContact);
         res.redirect('/contacts-list');
@@ -85,6 +83,7 @@ module.exports.processEditPage = async (req, res, next) => {
     }
 };
 
+//process contact deletion
 module.exports.performDelete = async (req, res, next) => {
     let id = req.params.id;
 

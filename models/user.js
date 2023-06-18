@@ -1,6 +1,9 @@
+/* user.js by Stefan Lovecchio ID# 301305372 18/06/23 */
+
 let mongoose = require('mongoose');
 let passportLocalMongoose = require('passport-local-mongoose');
 
+//create User schema
 let User = mongoose.Schema(
     {
         username:

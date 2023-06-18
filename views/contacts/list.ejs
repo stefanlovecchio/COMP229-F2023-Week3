@@ -7,12 +7,13 @@
     <div class="row">
         <div class="offset-md-1 col-md-11">
             <h1><%= title %></h1>
-            
+            <!--Button for adding contacts-->
                 <a href="/contacts-list/add" class="btn btn-primary" role="button">
                 <i class="fas fa-plus-circle"></i> Add a Contact</a>
-            
             <br>
-            <table class="table table-bordered table-striped table-hover">
+            
+            <!-- Contacts list table -->
+            <table class="table table-bordered table-striped table-hover" id="contacts">
                 <!-- Header Row -->
                 <tr class="d-flex">
                         <th class="text-center col-3">Name</th>
@@ -23,7 +24,7 @@
                 </tr>
                 <!-- Repeatable Template Row -->
                 <% for(let count = 0; count < ContactList.length; count++) { %>
-                    <tr class="d-flex">
+                    <tr class="d-flex" >
                             <td class="text-center col-3"><%= ContactList[count].name %></td>
                             <td class="text-center col-3"><%= ContactList[count].phone %></td>
                             <td class="text-center col-3"><%= ContactList[count].email %></td>
@@ -35,10 +36,43 @@
                                 <a href="/contacts-list/delete/<%= ContactList[count]._id %>" class="btn btn-danger btn-sm">
                                 <i class="fas fa-trash-alt"></i> Delete</a>
                             </td>
-
                     </tr>
                 <% } %>
             </table>
+            <!--JS Script for sorting table rows-->
+            <script>
+                function sortTable() {
+                    var table, rows, switching, i, x, y, shouldSwitch;
+                    table = document.getElementById("contacts");
+                    switching = true;
+                    //Loop until no more switchable elements found
+                    while (switching) {
+                        //set switching flag to false
+                        switching = false;
+                        rows = table.rows;
+                        //Loop through table rows
+                        for (i = 1; i < (rows.length - 1); i++) {
+                        //don't switch until conditions met
+                        shouldSwitch = false;
+                        //Get data from current and next rows
+                        x = rows[i].getElementsByTagName("TD")[0];
+                        y = rows[i + 1].getElementsByTagName("TD")[0];
+                        //if current row is alphabetically greater, should switch rows
+                        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {                            
+                            shouldSwitch = true;
+                            break;
+                        }
+                        }
+                        //if rows should switch, insert switching row before next row
+                        if (shouldSwitch) {
+                        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+                        // set switching flag to true
+                        switching = true;
+                        }
+                    }
+                    }
+                    sortTable();
+            </script>
         </div>
     </div>
   </main>

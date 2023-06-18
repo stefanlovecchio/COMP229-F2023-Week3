@@ -1,3 +1,5 @@
+/* index.js by Stefan Lovecchio ID# 301305372 18/06/23 */
+
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
@@ -27,6 +29,7 @@ module.exports.displayContactPage = (req, res, next) => {
     res.render('index', { title: 'Contact' , username: req.user ? req.user.username : ''});
 }
 
+//display login page
 module.exports.displayLoginPage = (req, res, next) => {
     // check if the user is already logged in
     if(!req.user)
@@ -44,6 +47,7 @@ module.exports.displayLoginPage = (req, res, next) => {
     }
 }
 
+//process login page
 module.exports.processLoginPage = (req, res, next) => {
     passport.authenticate('local',
     (err, user, info) => {
@@ -68,7 +72,7 @@ module.exports.processLoginPage = (req, res, next) => {
     })(req, res, next);
 }
 
-
+//perform logout
 module.exports.performLogout = (req, res, next) => {
     req.logout((err) => {
         if (err)
